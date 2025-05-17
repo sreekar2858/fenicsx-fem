@@ -104,6 +104,14 @@ def run_modal_analysis(config_path):
         mode.x.array[:] = eigvec.getArray().real
         mode.x.scatter_forward()
         if export_params.get("modes", None):
-            with io.XDMFFile(domain.comm, os.path.join("output", f"{export_params['modes']['filename'].split('.')[0]}_{i+1}.xdmf"), "w") as xdmf:
-                xdmf.write_mesh(domain)
-                xdmf.write_function(mode)
+            with io.VTKFile(domain.comm,
+                            os.path.join("output",
+                                f"{export_params['modes']['filename'].split('.')[0]}_{i+1}.vtu"),
+                                "w") as vtk:
+                vtk.write_function(mode)
+            # with io.XDMFFile(domain.comm,
+            #               os.path.join("output",
+            #               f"{export_params['modes']['filename'].split('.')[0]}_{i+1}.xdmf"),
+            #               "w") as xdmf:
+            #     xdmf.write_mesh(domain)
+                # xdmf.write_function(mode)

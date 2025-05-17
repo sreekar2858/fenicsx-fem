@@ -268,5 +268,5 @@ python tests/cantilever.py
 The generated mode shapes can be visualized using ParaView:
 
 1. Open ParaView
-2. Load the `.xdmf` files from the `output/` directory
+2. Load the `.vtu` files from the `output/` directory
 3. Apply the "Warp By Vector" filter to visualize the mode shapes with exaggerated displacement
