@@ -1,0 +1,37 @@
+# DOLFINx Modular Structural Solver - Box Mesh Configuration
+# Author: Sreekar Reddy, Sajjala
+# Contact: sreekar2858.tech
+# License: GPL-3.0
+
+material:
+  E: 1e5          # Young's modulus [Pa]
+  nu: 0.         # Poisson's ratio
+  density: 1e-3    # Density [kg/m³]
+
+geometry:
+  dimensions:
+    x: [-0.25, 0.25]
+    y: [ 0,    20]
+    z: [-0.5,  0.5]
+  use_boxmesh: true
+
+mesh:
+  divisions:
+    Nx: 5
+    Ny: 100
+    Nz: 10
+  element_order: 1
+
+solver:
+  name: "cantilever"
+  num_modes: 6
+  tol: 1e-8
+  max_it: 100
+
+exports:
+  mesh:
+    filename: "cantilever_box_mesh.vtu"
+  bc_marker:
+    filename: "cantilever_box_bc_marked.vtu"
+  modes:
+    filename: "cantilever_box_modes"

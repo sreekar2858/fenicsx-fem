@@ -1,0 +1,33 @@
+# DOLFINx Modular Structural Solver - GMSH Configuration
+# Author: Sreekar Reddy, Sajjala
+# Contact: sreekar2858.tech
+# License: GPL-3.0
+
+material:
+  E: 1e5          # Young's modulus [Pa]
+  nu: 0.         # Poisson's ratio
+  density: 1e-3    # Density [kg/m³]
+
+geometry:
+  input_file: "data/cantilever_comet.stl"   # Path to STL/STEP file
+  scale: 1e-3
+  use_boxmesh: false
+
+mesh:
+  min_size: 0.1
+  max_size: 0.1
+  element_order: 1
+
+solver:
+  name: "cantilever"
+  num_modes: 6
+  tol: 1e-8
+  max_it: 100
+
+exports:
+  mesh:
+    filename: "cantilever_gmsh_mesh.vtu"
+  bc_marker:
+    filename: "cantilever_gmsh_bc_marked.vtu"
+  modes:
+    filename: "cantilever_gmsh_modes"

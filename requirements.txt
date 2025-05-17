@@ -1,0 +1,11 @@
+# Requirements for DOLFINx Modular Structural Solver
+# Author: Sreekar Reddy, Sajjala
+# Contact: sreekar2858.tech
+# License: GPL-3.0
+
+fenics-dolfinx>=0.6.0
+petsc4py>=3.18.3
+slepc4py>=3.18.1
+pyyaml>=6.0
+numpy>=1.22.0
+mpi4py>=3.1.4
